@@ -169,11 +169,11 @@
             checked = checked.filter(item => item !== e.target.name);
         };
 
-        if (!checked.length) {
-            for (var i = 0; i < navLinks.length; i++) {
-                navLinks[i].style.display = 'block';
-            };
-        } else {
+        // if (!checked.length) {
+        //     for (var i = 0; i < navLinks.length; i++) {
+        //         navLinks[i].style.display = 'block';
+        //     };
+        // } else {
             for (var i = 0; i < navLinks.length; i++) {
                 navLinks[i].style.display = 'none';
             };
@@ -185,7 +185,7 @@
                     };
                 });
             };
-        };
+        // };
     };
 
     function createPositions(elem, iter) {

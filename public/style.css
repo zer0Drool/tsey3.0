@@ -57,6 +57,7 @@ label {
 }
 
 .nav-link {
+    display: none;
     position: absolute;
     z-index: 2;
     color: white;
