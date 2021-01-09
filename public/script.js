@@ -228,6 +228,11 @@
             navLinks[i].style.top = `${positions[i].top}px`;
             navLinks[i].style.left = `${positions[i].left}px`;
         };
+    }).then(() => {
+        for (var i = 0; i < navLinks.length; i++) {
+            navLinks[i].style.display = 'none';
+            navLinks[i].style.opacity = '1';
+        };
     });
 
     for (var i = 0; i < checkboxes.length; i++) {
