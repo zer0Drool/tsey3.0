@@ -1,6 +1,10 @@
 (function () {
     console.log('checking to see if i left all my logs in? well i did');
 
+    document.addEventListener('touchmove', function (event) {
+        if (event.scale !== 1) { event.preventDefault(); }
+    }, { passive: false });
+
     // VARS
     // document title
     let docTitleCount = 0;
