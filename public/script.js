@@ -23,29 +23,29 @@
         "////////////",
     ];
     // ip
-    let zerocool = {
-        device: null,
-        ip: null,
-        ip2: null,
-        referrer: null,
-        country: null,
-        city: null,
-    };
-    let info = document.getElementById("info");
-    let deetsInt;
-    let snoopDeets;
-    let snoopDeetsCount = 0;
+    // let zerocool = {
+    //     device: null,
+    //     ip: null,
+    //     ip2: null,
+    //     referrer: null,
+    //     country: null,
+    //     city: null,
+    // };
+    // let info = document.getElementById("info");
+    // let deetsInt;
+    // let snoopDeets;
+    // let snoopDeetsCount = 0;
     // imgs
-    let backgroundImg = document.getElementById("background-img");
-    let perspective = document.getElementById("perspective");
+    // let backgroundImg = document.getElementById("background-img");
+    // let perspective = document.getElementById("perspective");
     // three.js
     let scene, camera, form, cameraInt;
-    let currentPos = 0;
-    let cameraPositions = [
-        [0, 0, 6],
-        [10, 14, 4],
-        [-5, 8, 1],
-    ];
+    // let currentPos = 0;
+    // let cameraPositions = [
+    //     [0, 0, 6],
+    //     [10, 14, 4],
+    //     [-5, 8, 1],
+    // ];
     // nav
     let checkboxes = document.getElementsByTagName('input');
     let navLinks = document.getElementsByClassName('nav-link');
