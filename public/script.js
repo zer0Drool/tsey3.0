@@ -115,6 +115,8 @@
         renderer.setPixelRatio(window.devicePixelRatio);
         document.body.appendChild(renderer.domElement);
 
+        scene.fog = new THREE.Fog(0x00ff00, 10, 100);
+
         var directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
         directionalLight.position.set(2, 2, 2);
         scene.add(directionalLight);
@@ -123,11 +125,15 @@
         var geometry = new THREE.SphereGeometry(1, 128, 128);
         // var material = new THREE.MeshNormalMaterial();
         var material = new THREE.MeshPhongMaterial({
-            color: 0xffffff,
-            emissive: 0x00ddff,
-            emissiveIntensity: 0.1,
-            metalness: 0.9,
-            reflectivity: 0.9,
+          //   color: 0xff1493,
+          //   emissive: 0xffffff,
+          //   emissiveIntensity: 0.1,
+          //   metalness: 0.9,
+          //   reflectivity: 1,
+          color: 0x000000,
+          specular: 0xffffff,
+          emissive: 0x333333,
+          shininess: 10,
         });
         form = new THREE.Mesh(geometry, material);
         form.position.set(0, 0, 0);
@@ -196,9 +202,9 @@
         obj = {
             height: elem.offsetHeight,
             width: elem.offsetWidth,
-            top: rando(window.innerHeight - elem.offsetHeight, nav.offsetHeight),
+            top: rando(window.innerHeight - elem.offsetHeight - nav.offsetHeight, 10),
             left: rando(window.innerWidth - elem.offsetWidth, 0),
-            created: iter
+            created: iter,
         };
 
         for (var i = 0; i < positions.length; i++) {

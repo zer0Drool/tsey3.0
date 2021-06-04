@@ -1,6 +1,16 @@
+@font-face {
+    font-family: 'Sequel';
+    src: url('Sequel100Black-45.ttf');
+}
+
 * {
     margin: 0;
     user-select: none;
+    font-family: 'Sequel';
+    font-style: italic;
+    font-size: 12px;
+    line-height: 100%;
+    color: lime;
 }
 
 body {
@@ -8,6 +18,8 @@ body {
     height: 100vh;
     overflow: hidden;
     touch-action: manipulation;
+    /* background-color: deeppink; */
+    /* background-color: lime; */
 }
 
 :root {
@@ -29,8 +41,8 @@ body {
     left: -25vw;
     /* background: radial-gradient(ellipse at 10% 10%, rgba(255, 255, 255, 0.4), transparent),
                 radial-gradient(ellipse at 80% 90%, aqua, deeppink); */
-    background: radial-gradient(ellipse at 10% 10%, rgba(0, 0, 0, 0.7), transparent),
-                radial-gradient(ellipse at 80% 90%, rgba(0, 255, 255, 0.7), rgba(0, 0, 255, 0.7));
+    background: radial-gradient(ellipse at 10% 10%, rgba(0, 0, 0, 0.3), transparent),
+                radial-gradient(ellipse at 80% 90%, black, lime);
     animation: background-rotate 30s linear infinite;
 }
 
@@ -52,13 +64,14 @@ body {
     /* display: none; */
     position: fixed;
     z-index: 2;
-    top: 0;
-    left: 0;
+    bottom: 0;
+    right: 0;
+    /* background-color: lime; */
     /* padding-top: 5px; */
 }
 
 label {
-    color: white;
+    /* color: white; */
     margin-right: 10px;
     text-shadow: 0px 0px 10px black;
 }
@@ -67,10 +80,11 @@ label {
     /* display: none; */
     position: absolute;
     z-index: 2;
-    color: white;
+    /* color: white; */
     text-decoration: none;
     text-shadow: 0px 0px 10px black;
     opacity: 0;
+    padding: 3px;
 }
 
 #work {
@@ -81,7 +95,7 @@ label {
 }
 
 #work a {
-    color: white;
+    /* color: white; */
     margin-right: 10px;
     text-decoration: none;
 }
