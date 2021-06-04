@@ -224,23 +224,37 @@
         obj = {
             height: elem.offsetHeight,
             width: elem.offsetWidth,
-            top: rando(window.innerHeight - elem.offsetHeight - nav.offsetHeight - 10, 10),
-            left: rando(window.innerWidth - elem.offsetWidth, 0),
+            top: rando(window.innerHeight - elem.offsetHeight - nav.offsetHeight - 20, 10),
+            left: rando(document.body.clientWidth - elem.offsetWidth - 20, 100),
             created: iter,
         };
 
+        console.log(obj.width);
+
         for (var i = 0; i < positions.length; i++) {
             if (
-                (obj.top >= positions[i].top - obj.height && obj.top <= positions[i].top + positions[i].height) &&
-                (obj.left >= positions[i].left - obj.width && obj.left <= positions[i].left + positions[i].width)
+                (obj.top >= positions[i].top - obj.height && obj.top <= positions[i].top + positions[i].height)
             ) {
+                console.log(elem, iter);
                 createPositions(elem, iter + 1);
                 return;
             };
         };
 
         positions.push(obj);
-    };
+        elem.setAttribute("lol", obj.width);
+        elem.style.top = `${obj.top}px`;
+        elem.style.left = `${obj.left}px`;
+        console.log('elem widths', elem.getAttribute("lol"), elem.offsetWidth);
+        console.log('elem lefts', obj.left, elem.style.left);
+        console.log('window width', document.body.clientWidth);
+//         alert(`${elem.innerText}
+// 1. ${elem.offsetWidth + obj.left}
+// 2. ${document.body.clientWidth}
+// 2. ${window.innerWidth}
+// 3. ${obj.left}
+// 4. ${elem.offsetWidth}`)
+//     };
 
     // OTHER
     let positions = [];
@@ -256,10 +270,10 @@
 
     posLoop().then(() => {
         console.log('positions', positions);
-        for (var i = 0; i < navLinks.length; i++) {
-            navLinks[i].style.top = `${positions[i].top}px`;
-            navLinks[i].style.left = `${positions[i].left}px`;
-        };
+        // for (var i = 0; i < navLinks.length; i++) {
+        //     navLinks[i].style.top = `${positions[i].top}px`;
+        //     navLinks[i].style.left = `${positions[i].left}px`;
+        // };
     }).then(() => {
         for (var i = 0; i < navLinks.length; i++) {
             navLinks[i].style.display = 'none';
