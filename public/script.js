@@ -254,7 +254,7 @@
 // 2. ${window.innerWidth}
 // 3. ${obj.left}
 // 4. ${elem.offsetWidth}`)
-//     };
+    };
 
     // OTHER
     let positions = [];
