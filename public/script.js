@@ -225,7 +225,7 @@
             height: elem.offsetHeight,
             width: elem.offsetWidth,
             top: rando(window.innerHeight - elem.offsetHeight - nav.offsetHeight - 20, 10),
-            left: rando(document.body.clientWidth - elem.offsetWidth - 20, 100),
+            left: rando(document.body.clientWidth - elem.offsetWidth - 20, 0),
             created: iter,
         };
 
