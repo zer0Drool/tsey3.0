@@ -173,6 +173,17 @@
         animate();
     }
 
+    // window.addEventListener( 'resize', onWindowResize, false );
+
+    // function onWindowResize(){
+
+    //     camera.aspect = window.innerWidth / window.innerHeight;
+    //     camera.updateProjectionMatrix();
+
+    //     renderer.setSize( window.innerWidth, window.innerHeight );
+
+    // };
+
     function check(e) {
 
         moveCamera();
@@ -257,5 +268,5 @@
         checkboxes[i].addEventListener('click', (e) => {check(e)});
     };
 
-    setTimeout(() => threeInit(), 0);
+    setTimeout(() => threeInit(), 10);
 })();
