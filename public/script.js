@@ -268,5 +268,5 @@
         checkboxes[i].addEventListener('click', (e) => {check(e)});
     };
 
-    setTimeout(() => threeInit(), 10);
+    setTimeout(() => threeInit(), 0);
 })();
