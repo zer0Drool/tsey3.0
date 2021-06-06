@@ -56,19 +56,9 @@
     background.style.background = `radial-gradient(ellipse at 10% 10%, rgba(${rando(255, 0)}, ${rando(255, 0)}, ${rando(255, 0)}, ${rando(1, 0)}), transparent), radial-gradient(ellipse at 80% 90%, rgba(${rando(255, 0)}, ${rando(255, 0)}, ${rando(255, 0)}, ${rando(1, 0)}), rgba(${rando(255, 0)}, ${rando(255, 0)}, ${rando(255, 0)}, ${rando(1, 0)}))`;
 
     // FUNCTIONS
-    function promiseTimeout(timeout) {
-        return new Promise((resolve, reject) => setTimeout(resolve, timeout));
-    };
-
     function rando(max, min) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
-
-    function randoLet() {
-        var letters = ["a", "b", "c", "d", "e", "f"];
-        var letter = letters[Math.floor(Math.random() * letters.length)];
-        return letter
-    }
 
     function randoHex() {
         let hex =  "000000".replace(/0/g,function(){return (~~(Math.random()*16));});
@@ -95,7 +85,6 @@
 
         // final rotation (with lookAt)
         camera.position.set(camX, camY, camZ);
-        // camera.position.set(cameraPositions[currentPos][0], cameraPositions[currentPos][1], cameraPositions[currentPos][2]);
         camera.lookAt(form.position);
         var endRotation = new THREE.Euler().copy(camera.rotation);
 
@@ -223,13 +212,11 @@
     function createPositions(elem, iter) {
         obj = {
             height: elem.offsetHeight,
-            width: elem.offsetWidth,
+            width: elem.offsetWidth * 1.6,
             top: rando(window.innerHeight - elem.offsetHeight - nav.offsetHeight - 20, 10),
-            left: rando(document.body.clientWidth - elem.offsetWidth - 20, 0),
+            left: rando(window.innerWidth - (elem.offsetWidth * 1.6), 0),
             created: iter,
         };
-
-        console.log(obj.width);
 
         for (var i = 0; i < positions.length; i++) {
             if (
@@ -242,18 +229,9 @@
         };
 
         positions.push(obj);
-        elem.setAttribute("lol", obj.width);
         elem.style.top = `${obj.top}px`;
         elem.style.left = `${obj.left}px`;
-        console.log('elem widths', elem.getAttribute("lol"), elem.offsetWidth);
-        console.log('elem lefts', obj.left, elem.style.left);
-        console.log('window width', document.body.clientWidth);
-//         alert(`${elem.innerText}
-// 1. ${elem.offsetWidth + obj.left}
-// 2. ${document.body.clientWidth}
-// 2. ${window.innerWidth}
-// 3. ${obj.left}
-// 4. ${elem.offsetWidth}`)
+        elem.style.width = `${obj.width}px`;
     };
 
     // OTHER
@@ -262,7 +240,6 @@
     async function posLoop() {
 
         for (var i = 0; i < navLinks.length; i++) {
-            let target = navLinks[i]
             await createPositions(navLinks[i], 1);
         };
 
@@ -270,14 +247,9 @@
 
     posLoop().then(() => {
         console.log('positions', positions);
-        // for (var i = 0; i < navLinks.length; i++) {
-        //     navLinks[i].style.top = `${positions[i].top}px`;
-        //     navLinks[i].style.left = `${positions[i].left}px`;
-        // };
     }).then(() => {
         for (var i = 0; i < navLinks.length; i++) {
             navLinks[i].style.display = 'none';
-            // navLinks[i].style.opacity = '1';
         };
     });
 
@@ -285,6 +257,5 @@
         checkboxes[i].addEventListener('click', (e) => {check(e)});
     };
 
-    // setTimeout(() => (backgroundImg.style.opacity = "1"), 1000);
     setTimeout(() => threeInit(), 0);
 })();
